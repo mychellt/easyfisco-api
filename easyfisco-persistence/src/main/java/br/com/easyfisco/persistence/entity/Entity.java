@@ -7,68 +7,39 @@ import org.springframework.data.annotation.LastModifiedDate;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author Mychell Teixeira (mychellt@gmail.com)
  * @since 14/02/2020.
  */
 public abstract class Entity implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-	@Id
-	private String id;
+	public abstract UUID getId();
+
+	public abstract void setId(UUID id);
 
 	@CreatedDate
-	private Date createdDate;
+	private Date dateOfCreate;
 
 	@LastModifiedDate
-	private Date lastModifiedDate;
+	private Date dateOfChange;
 
-	public Entity() {
+	public Date getDateOfCreate() {
+		return dateOfCreate;
 	}
 
-	public String getId() {
-		return id;
+	public void setDateOfCreate(Date dateOfCreate) {
+		this.dateOfCreate = dateOfCreate;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public Date getDateOfChange() {
+		return dateOfChange;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Date getLastModifiedDate() {
-		return lastModifiedDate;
-	}
-
-	public void setLastModifiedDate(Date lastModifiedDate) {
-		this.lastModifiedDate = lastModifiedDate;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		Entity that = (Entity) o;
-		return Objects.equals(id, that.id);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public String toString() {
-		return "Entity{" + "id='" + id + '\'' + ", createdDate=" + createdDate + ", lastModifiedDate="
-				+ lastModifiedDate + '}';
+	public void setDateOfChange(Date dateOfChange) {
+		this.dateOfChange = dateOfChange;
 	}
 
 }
