@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/easyfisco-api.iml" filepath="$PROJECT_DIR$/.idea/easyfisco-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyfisco-domain/easyfisco-domain.iml" filepath="$PROJECT_DIR$/easyfisco-domain/easyfisco-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyfisco-persistence/easyfisco-persistence.iml" filepath="$PROJECT_DIR$/easyfisco-persistence/easyfisco-persistence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyfisco-service/easyfisco-service.iml" filepath="$PROJECT_DIR$/easyfisco-service/easyfisco-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyfisco-task/easyfisco-task.iml" filepath="$PROJECT_DIR$/easyfisco-task/easyfisco-task.iml" />
+    </modules>
+  </component>
+</project>
