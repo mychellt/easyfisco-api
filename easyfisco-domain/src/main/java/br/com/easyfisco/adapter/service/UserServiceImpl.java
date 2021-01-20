@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -29,17 +30,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getOne(String id) {
+	public User getOne(UUID id) {
 		return repository.findById(id);
 	}
 
 	@Override
 	public User save(User user) {
-		return repository.saveOrUpdate(user);
+		return repository.save(user);
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(UUID id) {
 		repository.deleteById(id);
 	}
 

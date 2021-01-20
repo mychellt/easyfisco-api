@@ -3,6 +3,7 @@ package br.com.easyfisco.port.service;
 import br.com.easyfisco.domain.model.User;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Mychell Teixeira (mychellt@gmail.com)
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public interface UserService {
 	List<User> getAll();
-	User getOne(String id);
+	User getOne(UUID id);
 	User save(User user);
-	void delete(String id);
+	void delete(UUID id);
 }
