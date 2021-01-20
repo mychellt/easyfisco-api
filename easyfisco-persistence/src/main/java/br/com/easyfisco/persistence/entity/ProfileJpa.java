@@ -2,15 +2,24 @@ package br.com.easyfisco.persistence.entity;
 
 import lombok.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
+
 
 @Getter
 @Setter
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Builder
-public class StateEntity extends Entity{
+@Entity(name = "profiles")
+public class ProfileJpa extends EntityPersistent {
+    @Id
     private UUID id;
+
+    @Column(name = "name")
     private String name;
-    private String initials;
+
+    private UserJpa user;
 }

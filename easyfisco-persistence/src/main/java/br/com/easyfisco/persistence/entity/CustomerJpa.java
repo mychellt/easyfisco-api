@@ -1,5 +1,6 @@
 package br.com.easyfisco.persistence.entity;
 
+
 import lombok.*;
 
 import java.util.UUID;
@@ -9,6 +10,6 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Builder
-public class ProductEntity extends Entity {
+public class CustomerJpa extends PersonJpa {
     private UUID id;
 }

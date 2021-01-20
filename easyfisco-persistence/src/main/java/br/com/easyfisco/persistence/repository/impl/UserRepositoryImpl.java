@@ -2,11 +2,12 @@ package br.com.easyfisco.persistence.repository.impl;
 
 import br.com.easyfisco.domain.model.User;
 import br.com.easyfisco.persistence.mapper.UserMapper;
-import br.com.easyfisco.persistence.repository.UserPGRepository;
+import br.com.easyfisco.persistence.repository.UserRepositoryJpa;
 import br.com.easyfisco.port.repository.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -16,33 +17,33 @@ import java.util.stream.Collectors;
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 
-	private final UserPGRepository pgRepository;
+	private final UserRepositoryJpa repositoryJpa;
 
 	private final UserMapper mapper;
 
-	public UserRepositoryImpl(UserPGRepository pgRepository, UserMapper mapper) {
-		this.pgRepository = pgRepository;
+	public UserRepositoryImpl(UserRepositoryJpa repositoryJpa, UserMapper mapper) {
+		this.repositoryJpa = repositoryJpa;
 		this.mapper = mapper;
 	}
 
 	@Override
 	public List<User> findAll() {
-		return pgRepository.findAll().stream().map(mapper::to).collect(Collectors.toList());
+		return repositoryJpa.findAll().stream().map(mapper::to).collect(Collectors.toList());
 	}
 
 	@Override
-	public User findById(String id) {
-		return pgRepository.findById(id).stream().map(mapper::to).findFirst().orElse(null);
+	public User findById(UUID id) {
+		return repositoryJpa.findById(id).stream().map(mapper::to).findFirst().orElse(null);
 	}
 
 	@Override
-	public User saveOrUpdate(User user) {
-		return mapper.to(pgRepository.save(mapper.from(user)));
+	public User save(User user) {
+		return mapper.to(repositoryJpa.save(mapper.from(user)));
 	}
 
 	@Override
-	public void deleteById(String id) {
-		pgRepository.deleteById(id);
+	public void deleteById(UUID id) {
+		repositoryJpa.deleteById(id);
 	}
 
 }

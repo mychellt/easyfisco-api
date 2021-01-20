@@ -13,7 +13,7 @@ import java.util.UUID;
  * @author Mychell Teixeira (mychellt@gmail.com)
  * @since 14/02/2020.
  */
-public abstract class Entity implements Serializable {
+public abstract class EntityPersistent implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public abstract UUID getId();

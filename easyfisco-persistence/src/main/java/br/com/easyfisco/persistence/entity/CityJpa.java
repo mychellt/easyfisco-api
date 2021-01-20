@@ -3,6 +3,7 @@ package br.com.easyfisco.persistence.entity;
 
 import lombok.*;
 
+import javax.persistence.*;
 import java.util.UUID;
 
 @Getter
@@ -10,8 +11,16 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Builder
-public class CityEntity extends Entity {
+@Entity
+@Table(name = "cities")
+public class CityJpa extends EntityPersistent {
+    @Id
     private UUID id;
+
+    @Column(name = "name")
     private String name;
-    private StateEntity state;
+
+    @ManyToOne
+    @JoinColumn(name="state_id", nullable = false)
+    private StateJpa state;
 }

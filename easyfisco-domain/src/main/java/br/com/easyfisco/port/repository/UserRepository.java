@@ -4,6 +4,7 @@ package br.com.easyfisco.port.repository;
 import br.com.easyfisco.domain.model.User;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Mychell Teixeira (mychellt@gmail.com)
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public interface UserRepository {
 	List<User> findAll();
-	User findById(String id);
-	User saveOrUpdate(User user);
-	void deleteById(String id);
+	User findById(UUID id);
+	User save(User user);
+	void deleteById(UUID id);
 }

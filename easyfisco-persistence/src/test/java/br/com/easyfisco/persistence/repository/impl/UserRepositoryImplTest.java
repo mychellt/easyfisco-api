@@ -1,9 +1,9 @@
 package br.com.easyfisco.persistence.repository.impl;
 
 import br.com.easyfisco.domain.model.User;
-import br.com.easyfisco.persistence.entity.UserEntity;
+import br.com.easyfisco.persistence.entity.UserJpa;
 import br.com.easyfisco.persistence.mapper.UserMapper;
-import br.com.easyfisco.persistence.repository.UserPGRepository;
+import br.com.easyfisco.persistence.repository.UserRepositoryJpa;
 import br.com.easyfisco.port.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,12 +25,12 @@ class UserRepositoryImplTest {
 	private UserRepository repository;
 
 	@Mock
-	private UserPGRepository pgRepository;
+	private UserRepositoryJpa pgRepository;
 
 	@Mock
 	private UserMapper mapper;
 
-	private UserEntity entity;
+	private UserJpa entity;
 
 	@BeforeEach
 	void setUp() {
@@ -38,7 +38,7 @@ class UserRepositoryImplTest {
 
 		repository = new UserRepositoryImpl(pgRepository, mapper);
 
-		entity = new UserEntity();
+		entity = new UserJpa();
 		entity.setId("1L");
 		entity.setCreatedDate(new Date());
 		entity.setLastModifiedDate(new Date());

@@ -1,7 +1,7 @@
 package br.com.easyfisco.persistence.mapper;
 
 import br.com.easyfisco.domain.model.User;
-import br.com.easyfisco.persistence.entity.UserEntity;
+import br.com.easyfisco.persistence.entity.UserJpa;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 
@@ -11,6 +11,6 @@ import org.mapstruct.Mapper;
  */
 @Mapper(builder = @Builder(disableBuilder = true))
 public interface UserMapper {
-	UserEntity from(User source);
-	User to(UserEntity source);
+	UserJpa from(User source);
+	User to(UserJpa source);
 }
