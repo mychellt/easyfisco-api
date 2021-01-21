@@ -4,7 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -24,4 +26,7 @@ public abstract class PersonJpa extends EntityPersistent {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "person", fetch=FetchType.LAZY)
     private List<AddressJpa> addresses;
 
+    @ElementCollection
+    @CollectionTable(name = "PHONES")
+    private Set<String> phones = new HashSet<>();
 }
