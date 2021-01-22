@@ -1,5 +1,6 @@
 package br.com.easyfisco.persistence.configuration;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -10,6 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 @Configuration
 @ComponentScan("br.com.easyfisco.persistence")
+@EntityScan(basePackages = { "br.com.easyfisco.persistence.entity" })
 @EnableJpaRepositories(basePackages = {"br.com.easyfisco.persistence.repository"})
 public class PersistenceConfiguration {
 

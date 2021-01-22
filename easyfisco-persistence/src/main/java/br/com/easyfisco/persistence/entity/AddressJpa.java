@@ -22,7 +22,7 @@ public class AddressJpa extends EntityPersistent {
     @Column(name = "number")
     private String number;
 
-    @Column(name = "cep")
+    @Column(name = "district")
     private String district;
 
     @Column(name = "place")

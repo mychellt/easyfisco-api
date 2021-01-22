@@ -2,12 +2,8 @@ package br.com.easyfisco.persistence.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import javax.persistence.*;
+import java.util.*;
 
 /**
  * @author Mychell  Teixeira (mychellt@gmail.com)
@@ -18,7 +14,8 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Builder
-@Entity(name = "users")
+@Entity
+@Table(name = "users")
 public class UserJpa extends EntityPersistent {
 	@Id
 	private UUID id;
@@ -29,6 +26,10 @@ public class UserJpa extends EntityPersistent {
 	@Column(name = "password", nullable = false)
 	private String password;
 
-
-	private Set<ProfileJpa> profiles = new HashSet<>();
+	@ManyToMany
+	@JoinTable(name = "USER_PROFILES",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "profile_id")
+	)
+	private List<ProfileJpa> profiles = new ArrayList<>();
 }

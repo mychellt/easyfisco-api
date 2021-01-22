@@ -21,5 +21,7 @@ public class ProfileJpa extends EntityPersistent {
     @Column(name = "name")
     private String name;
 
-    private UserJpa user;
+    @Column(name = "description")
+    private String description;
+
 }
