@@ -32,5 +32,5 @@ public class UserJpa extends EntityPersistent {
 			joinColumns = @JoinColumn(name = "user_id"),
 			inverseJoinColumns = @JoinColumn(name = "profile_id")
 	)
-	private List<ProfileJpa> profiles = new ArrayList<>();
+	private Set<ProfileJpa> profiles = new HashSet<>();
 }
