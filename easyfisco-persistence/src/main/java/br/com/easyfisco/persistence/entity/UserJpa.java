@@ -18,6 +18,7 @@ import java.util.*;
 @Table(name = "users")
 public class UserJpa extends EntityPersistent {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
 	@Column(name = "email", nullable = false, unique = true)

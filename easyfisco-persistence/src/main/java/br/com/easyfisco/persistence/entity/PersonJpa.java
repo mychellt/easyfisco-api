@@ -16,7 +16,7 @@ import java.util.UUID;
 @Table(name = "persons")
 public abstract class PersonJpa extends EntityPersistent {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "type")

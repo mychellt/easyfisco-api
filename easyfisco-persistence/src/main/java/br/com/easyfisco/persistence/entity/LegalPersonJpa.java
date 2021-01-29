@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Setter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Entity
 @PrimaryKeyJoinColumn(name="id")
 @Table(name = "legal_person")

@@ -2,9 +2,7 @@ package br.com.easyfisco.persistence.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 
@@ -16,6 +14,7 @@ import java.util.UUID;
 @Entity(name = "profiles")
 public class ProfileJpa extends EntityPersistent {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "name")

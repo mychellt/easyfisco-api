@@ -1,4 +1,4 @@
-package br.com.easyfisco.adapter.service.security.utils;
+package br.com.easyfisco.service.security.utils;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

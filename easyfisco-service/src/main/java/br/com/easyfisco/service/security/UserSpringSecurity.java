@@ -1,4 +1,4 @@
-package br.com.easyfisco.adapter.service.security;
+package br.com.easyfisco.service.security;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

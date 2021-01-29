@@ -15,12 +15,13 @@ import java.util.UUID;
 @Table(name = "cities")
 public class CityJpa extends EntityPersistent {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "name")
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="state_id", nullable = false)
+    @JoinColumn(name="state_id", nullable = false, foreignKey = @ForeignKey(name="fk_state_id"))
     private StateJpa state;
 }

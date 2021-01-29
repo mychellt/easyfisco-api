@@ -14,6 +14,7 @@ import java.util.UUID;
 @Table(name = "addresses")
 public class AddressJpa extends EntityPersistent {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "cep")
@@ -32,10 +33,10 @@ public class AddressJpa extends EntityPersistent {
     private String complement;
 
     @ManyToOne
-    @JoinColumn(name="city_id", nullable=false)
+    @JoinColumn(name="city_id", nullable=false, foreignKey = @ForeignKey(name="fk_city_id") )
     private CityJpa city;
 
     @ManyToOne
-    @JoinColumn(name="person_id", nullable = false)
+    @JoinColumn(name="person_id", nullable = false, foreignKey = @ForeignKey(name="fk_person_id"))
     private PersonJpa person;
 }

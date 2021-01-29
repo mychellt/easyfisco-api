@@ -1,4 +1,4 @@
-package br.com.easyfisco.adapter.service.security;
+package br.com.easyfisco.service.security;
 
 import br.com.easyfisco.domain.model.User;
 import br.com.easyfisco.port.repository.UserRepository;
