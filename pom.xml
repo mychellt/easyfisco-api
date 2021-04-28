@@ -25,10 +25,12 @@
 
 		<!-- INFRASTRUCTURE -->
 		<module>easyfisco-persistence</module>
+        <module>easyfisco-migration</module>
 
 		<!-- APPLICATION -->
 		<module>easyfisco-task</module>
 		<module>easyfisco-service</module>
+        <module>easyfisco-consumer</module>
 	</modules>
 
     <developers>
@@ -88,6 +90,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
 	</dependencies>
 
     <build>

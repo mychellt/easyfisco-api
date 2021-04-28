@@ -1,9 +1,9 @@
 package br.com.easyfisco.persistence.repository.impl;
 
 import br.com.easyfisco.domain.model.User;
-import br.com.easyfisco.persistence.mapper.UserMapper;
+import br.com.easyfisco.persistence.entity.mapper.IUserJpaMapper;
 import br.com.easyfisco.persistence.repository.UserRepositoryJpa;
-import br.com.easyfisco.port.repository.UserRepository;
+import br.com.easyfisco.port.repository.IUserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,30 +15,30 @@ import java.util.stream.Collectors;
  * @since 14/02/2020.
  */
 @Repository
-public class UserRepositoryImpl implements UserRepository {
+public class UserRepositoryImpl implements IUserRepository {
 
 	private final UserRepositoryJpa repositoryJpa;
 
-	private final UserMapper mapper;
+	private final IUserJpaMapper mapper;
 
-	public UserRepositoryImpl(UserRepositoryJpa repositoryJpa, UserMapper mapper) {
+	public UserRepositoryImpl(UserRepositoryJpa repositoryJpa, IUserJpaMapper mapper) {
 		this.repositoryJpa = repositoryJpa;
 		this.mapper = mapper;
 	}
 
 	@Override
 	public List<User> findAll() {
-		return repositoryJpa.findAll().stream().map(mapper::to).collect(Collectors.toList());
+		return repositoryJpa.findAll().stream().map(mapper::getDomainEntity).collect(Collectors.toList());
 	}
 
 	@Override
 	public User findById(UUID id) {
-		return repositoryJpa.findById(id).stream().map(mapper::to).findFirst().orElse(null);
+		return repositoryJpa.findById(id).stream().map(mapper::getDomainEntity).findFirst().orElse(null);
 	}
 
 	@Override
 	public User save(User user) {
-		return mapper.to(repositoryJpa.save(mapper.from(user)));
+		return mapper.getDomainEntity(repositoryJpa.save(mapper.getJpaEntity(user)));
 	}
 
 	@Override

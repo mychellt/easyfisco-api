@@ -15,8 +15,14 @@ import javax.persistence.Table;
 @Entity
 @PrimaryKeyJoinColumn(name="id")
 @Table(name = "legal_person")
-public class LegalPersonJpa extends PersonJpa {
+public class LegalPersonJpa extends PersonJpaEntity {
     @Column(name = "cnpj", unique = true)
     private String cnpj;
+
+    @Column(name = "company_name")
+    private String companyName;
+
+    @Column(name = "trading_name")
+    private String tradingName;
 
 }

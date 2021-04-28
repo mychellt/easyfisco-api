@@ -1,8 +1,10 @@
 package br.com.easyfisco.persistence.mapper;
 
 import br.com.easyfisco.domain.model.User;
-import br.com.easyfisco.persistence.entity.UserJpa;
+import br.com.easyfisco.persistence.entity.UserJpaEntity;
 import javax.annotation.processing.Generated;
+
+import br.com.easyfisco.persistence.entity.mapper.IUserJpaMapper;
 import org.springframework.stereotype.Component;
 
 @Generated(
@@ -11,15 +13,15 @@ import org.springframework.stereotype.Component;
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.7 (AdoptOpenJDK)"
 )
 @Component
-public class UserMapperImpl implements UserMapper {
+public class UserMapperImpl implements IUserJpaMapper {
 
     @Override
-    public UserJpa from(User source) {
+    public UserJpaEntity getJpaEntity(User source) {
         if ( source == null ) {
             return null;
         }
 
-        UserJpa userJpa = new UserJpa();
+        UserJpaEntity userJpa = new UserJpaEntity();
 
         userJpa.setId( source.getId() );
         userJpa.setEmail( source.getEmail() );
@@ -29,7 +31,7 @@ public class UserMapperImpl implements UserMapper {
     }
 
     @Override
-    public User to(UserJpa source) {
+    public User getDomainEntity(UserJpaEntity source) {
         if ( source == null ) {
             return null;
         }

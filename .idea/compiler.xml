@@ -24,14 +24,18 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar" />
         </processorPath>
         <module name="easyfisco-task" />
-        <module name="easyfisco-service" />
+        <module name="easyfisco-consumer" />
         <module name="easyfisco-domain" />
+        <module name="easyfisco-migration" />
+        <module name="easyfisco-service" />
         <module name="easyfisco-persistence" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="easyfisco-api" target="11" />
+      <module name="easyfisco-consumer" target="11" />
       <module name="easyfisco-domain" target="11" />
+      <module name="easyfisco-migration" target="11" />
       <module name="easyfisco-persistence" target="11" />
       <module name="easyfisco-service" target="11" />
       <module name="easyfisco-task" target="11" />
@@ -39,7 +43,9 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="easyfisco-consumer" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="easyfisco-domain" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="easyfisco-migration" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="easyfisco-persistence" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="easyfisco-service" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="easyfisco-task" options="-parameters -Amapstruct.defaultComponentModel=spring" />

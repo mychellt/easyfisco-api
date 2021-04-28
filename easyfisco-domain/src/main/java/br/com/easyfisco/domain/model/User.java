@@ -8,6 +8,7 @@ import java.util.UUID;
  * @author Mychell Teixeira (mychellt@gmail.com)
  * @since 14/02/2020.
  */
+
 @Data
 @Getter
 @Setter

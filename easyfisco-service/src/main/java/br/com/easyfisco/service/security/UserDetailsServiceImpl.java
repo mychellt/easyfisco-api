@@ -1,7 +1,7 @@
 package br.com.easyfisco.service.security;
 
 import br.com.easyfisco.domain.model.User;
-import br.com.easyfisco.port.repository.UserRepository;
+import br.com.easyfisco.port.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,10 +12,10 @@ import java.util.Objects;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-    private final UserRepository repository;
+    private final IUserRepository repository;
 
     @Autowired
-    public UserDetailsServiceImpl(UserRepository repository) {
+    public UserDetailsServiceImpl(IUserRepository repository) {
         this.repository = repository;
     }
 
