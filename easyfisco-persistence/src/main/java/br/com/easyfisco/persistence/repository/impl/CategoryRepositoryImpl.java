@@ -53,4 +53,9 @@ public class CategoryRepositoryImpl implements ICategoryRepository {
                 .map(mapper::getDomainEntity)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Category save(Category obj) {
+        return mapper.getDomainEntity(jpaRepository.save(mapper.getJpaEntity(obj)));
+    }
 }

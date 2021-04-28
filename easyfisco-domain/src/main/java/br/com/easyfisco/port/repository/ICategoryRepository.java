@@ -9,4 +9,5 @@ public interface ICategoryRepository {
     Category findOne(UUID id);
     Category findOne(String code);
     List<Category> getAll();
+    Category save(Category obj);
 }

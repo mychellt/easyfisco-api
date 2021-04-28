@@ -5,6 +5,7 @@ import br.com.easyfisco.service.dto.CategoryDTO;
 import br.com.easyfisco.service.dto.mapper.ICategoryDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +30,7 @@ public class ListAllCategoryRestController {
         this.mapper = mapper;
     }
 
+    @GetMapping
     public ResponseEntity<List<CategoryDTO>> execute() {
         return ResponseEntity.ok(emptyIfNull(service.execute())
             .stream()
