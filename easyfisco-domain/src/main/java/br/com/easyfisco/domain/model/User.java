@@ -2,6 +2,7 @@ package br.com.easyfisco.domain.model;
 
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -19,4 +20,5 @@ public class User {
 	private UUID id;
 	private String email;
 	private String password;
+	private List<Profile> profiles;
 }

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 /**
  * @author Mychell Teixeira (mychellt@gmail.com)
  * @since 14/02/2020.
@@ -28,7 +30,7 @@ public class CreateCategoryRestController {
     }
 
     @PostMapping
-    public ResponseEntity execute(@RequestBody CategoryDTO category) {
+    public ResponseEntity execute(@RequestBody @Valid CategoryDTO category) {
         service.execute(mapper.getDomainEntity(category));
         return ResponseEntity.ok().build();
     }

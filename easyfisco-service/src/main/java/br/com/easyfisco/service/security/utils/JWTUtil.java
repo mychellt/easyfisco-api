@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * @author Mychell Teixeira (mychellt@gmail.com)
+ */
+
 @Component
 public class JWTUtil {
     @Value("${jwt.secret}")
