@@ -11,44 +11,49 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
- * @author Raphael Medeiros (raphael.medeiros@gmail.com)
- * @since 14/02/2020.
+ * @author Mychell Teixeira (mychellt@gmail.com)
+ * @since 14/02/2021.
  */
 @Repository
 public class UserRepositoryImpl implements IUserRepository {
 
-	private final UserRepositoryJpa repositoryJpa;
+	private final UserRepositoryJpa jpaRep;
 
 	private final IUserJpaMapper mapper;
 
-	public UserRepositoryImpl(UserRepositoryJpa repositoryJpa, IUserJpaMapper mapper) {
-		this.repositoryJpa = repositoryJpa;
+	public UserRepositoryImpl(UserRepositoryJpa jpaRep, IUserJpaMapper mapper) {
+		this.jpaRep = jpaRep;
 		this.mapper = mapper;
 	}
 
 	@Override
 	public List<User> findAll() {
-		return repositoryJpa.findAll().stream().map(mapper::getDomainEntity).collect(Collectors.toList());
+		return jpaRep.findAll().stream().map(mapper::getDomainEntity).collect(Collectors.toList());
 	}
 
 	@Override
 	public User findById(UUID id) {
-		return repositoryJpa.findById(id).stream().map(mapper::getDomainEntity).findFirst().orElse(null);
+		return jpaRep.findById(id).stream().map(mapper::getDomainEntity).findFirst().orElse(null);
 	}
 
 	@Override
 	public User save(User user) {
-		return mapper.getDomainEntity(repositoryJpa.save(mapper.getJpaEntity(user)));
+		return mapper.getDomainEntity(jpaRep.save(mapper.getJpaEntity(user)));
 	}
 
 	@Override
 	public void deleteById(UUID id) {
-		repositoryJpa.deleteById(id);
+		jpaRep.deleteById(id);
 	}
 
 	@Override
 	public User findByEmail(String email) {
-		return repositoryJpa.findByEmail(email);
+		return mapper.getDomainEntity(jpaRep.findByEmail(email));
+	}
+
+	@Override
+	public boolean existsByEmail(String email) {
+		return jpaRep.existsByEmail(email);
 	}
 
 }

@@ -5,8 +5,6 @@ import lombok.*;
 import java.util.UUID;
 
 @Data
-@Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Builder

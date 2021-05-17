@@ -11,8 +11,6 @@ import java.util.UUID;
  */
 
 @Data
-@Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Builder
@@ -20,5 +18,9 @@ public class User {
 	private UUID id;
 	private String email;
 	private String password;
+	private String phoneNumber;
 	private List<Profile> profiles;
+	private String token;
+	private String name;
+	private boolean authorized;
 }

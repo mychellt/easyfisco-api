@@ -16,4 +16,5 @@ public interface IUserRepository {
 	User save(User user);
 	void deleteById(UUID id);
 	User findByEmail(String email);
+    boolean existsByEmail(String email);
 }

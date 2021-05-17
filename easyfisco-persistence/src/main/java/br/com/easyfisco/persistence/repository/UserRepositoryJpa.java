@@ -1,6 +1,5 @@
 package br.com.easyfisco.persistence.repository;
 
-import br.com.easyfisco.domain.model.User;
 import br.com.easyfisco.persistence.entity.UserJpaEntity;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserRepositoryJpa extends AbstractRepository<UserJpaEntity> {
-
-    User findByEmail(String email);
+    UserJpaEntity findByEmail(String email);
+    boolean existsByEmail(String email);
 }

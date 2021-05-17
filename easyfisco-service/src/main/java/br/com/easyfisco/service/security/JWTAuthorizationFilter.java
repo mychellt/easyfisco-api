@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
-    private JWTUtil jwtUtil;
-    private UserDetailsService userDetailsService;
+    private final JWTUtil jwtUtil;
+    private final UserDetailsService userDetailsService;
 
     public JWTAuthorizationFilter(AuthenticationManager authenticationManager,
                                   JWTUtil jwtUtil,
