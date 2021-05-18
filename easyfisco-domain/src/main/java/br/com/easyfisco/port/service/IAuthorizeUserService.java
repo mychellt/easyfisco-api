@@ -6,4 +6,5 @@ import br.com.easyfisco.domain.model.User;
 
 public interface IAuthorizeUserService {
     User execute(AccessSolicitationToken token) throws ServiceBusinessException;
+    User execute(String token) throws ServiceBusinessException;
 }
