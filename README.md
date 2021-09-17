@@ -2,7 +2,7 @@
 
 ### Project Description
 
-Base project to development of Spring Boot and PostgreSQL applications. 
+A system to facilitate the issuing of invoices by traders - Project developed during the GFT bootcamp - DIO
 
 ### Dependences
 
